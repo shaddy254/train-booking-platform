@@ -58,16 +58,6 @@ void bookTrain(){
     printf("Enter Day and time of traveling :");
     scanf("%s", &_time_day);
 
-    // if (pick_point == "Mombasa" && destination == "Nairobi" ){ strcmp(strg1, strg2)==0
-    //     int price = 1000;
-    //     clock_t booking_time = clock(); //time as per clock
-    //     printf(booking_time);
-    //     departure_t = 10.00;
-    //     arrival_t = 07.00;
-
-    //     printf(" Your train deaprts Mombasa Treminu at : 10.00Hrs, and Arrives Nairobi at : 7.00Hrs \n");
-    //     printf("Price : 1000.00");
-    // }
 
     switch (PICK_POINT) {
     case 1:
