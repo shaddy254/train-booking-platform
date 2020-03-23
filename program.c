@@ -4,7 +4,15 @@
 
 
 void login();
-void bookTrain ();
+void mainEntryProject();
+int askForDestination();
+int askForDepart_point();
+int askForDayOfTravel();
+void bookTrain();
+void payForTrain();
+void assignTrainpay();
+
+
 int travel_time; 
 char destination;
 char username[10];
@@ -25,7 +33,8 @@ const int DEST_POINT_NAIVA = 6;
 
 int main(){
     // login();
-    bookTrain();
+    mainEntryProject();
+    return 0;
 }
 
 void login(){
@@ -46,7 +55,49 @@ void login(){
     }
 }
 
-void bookTrain(){
+void mainEntryProject(){
+    switch (askForDepart_point()) {  //return int
+    case 1: //FROM MSA
+        assignTrainpay();
+        break;
+    case 2: //FROM MARIAKANI
+       assignTrainpay();
+        break;
+    case 3://FROM MIASENYI
+        assignTrainpay();
+        break;
+     case 4://FROM VOI
+        assignTrainpay();
+        break;
+    case 5://FROM MTITO ANDEI
+        assignTrainpay();
+        break;// FROMKIBWEZI
+    case 6:
+        assignTrainpay();
+        break;
+    case 7:// FROM EMALI
+        assignTrainpay();
+        break;
+    case 8://FROM ATHI RIVER
+        assignTrainpay();
+        break;
+           assignTrainpay();
+    case 9:// EXPRESS MOMBASA NAIROBI
+        assignTrainpay();
+        break;
+    default:
+        printf("Kindly Enter 1-3");
+        break;
+    }
+}
+
+int askForDestination(){
+      printf("Enter your destination\n");
+        scanf("%d", &destination); //1-9
+        return destination;
+}
+
+int askForDepart_point(){
     char name, destination;
     int id_no, _time_day, pick_point;
     printf("Enter your name : ");
@@ -55,68 +106,99 @@ void bookTrain(){
     scanf("%d", &id_no);
     printf("Enter pick point: Enter 1 : MOMBASA\n Enter 2 : NAIROBI \n Enter 3 : NAIVASHA\n");
     scanf("%d", &PICK_POINT);
- 
-    switch (PICK_POINT) {
-    case 1:
-        printf("Departing from MSA \n");
-        printf("Enter DESTINATION:\n Enter 5 : NAIROBI: \n Enter 6 : NAIVASHA\n");
-        scanf("%d", &DEST_POINT);
-        
-        if(DEST_POINT == DEST_POINT_NAI ){
-            price = 1000;
-            departure_t[10]  = "13.00 HR";
-            arrival_time[10] = "19.00 HR";
-            printf("Destination Nairobi \n");
-            printf("Kindly pay " + price);
-            printf("Your Departure time is : " + departure_t[10]);
-            printf("Your Expected Arrival time is : " + arrival_time[10]);
-        }else{
-            
-            price = 500.00;
-            departure_t[10] = "14.00 HR";
-            arrival_time[10] = "17.00 HR";
-            printf("Destination Naivasha \n");
-            printf("Kindly pay 500.00 via MPesa. \n");
-            printf("Your Departure time is \n" );
-            printf("Your Expected Arrival time is : \n");
-        }
-
-        break;
-    case 2:
-        printf("Departing from Nairobi");
-        printf("Kindly Enter Destination");
-        scanf("%d", &DEST_POINT);
-        if(DEST_POINT == DEST_POINT_MSA ){
-            price = 1000;
-            departure_t[10] = 13.00;
-            arrival_time[10] = 19.00;
-        }else{
-            price = 500.00;
-            departure_t[10] = 11.00;
-            arrival_time[10] = 03.00;
-        }
-        break;
-    case 3:
-        printf("Departing from Naivasha");
-        printf("Departing from Nairobi");
-        printf("Kindly Enter Destination");
-        scanf("%d", &DEST_POINT);
-        if(DEST_POINT == DEST_POINT_MSA ){
-            price = 1000;
-            departure_t[10] = 13.00;
-            arrival_time[10] = 19.00;
-        }else{
-            price = 500.00;
-            departure_t[10] = 14.00;
-            arrival_time[10] = 17.00;
-        }
-        break;
-    
-    default:
-        printf("Kindly Enter 1-3");
-        break;
-    }
+    return PICK_POINT;
 }
+
+void assignTrainpay(){
+    switch (askForDestination())   { //return int
+        case 1 /* constant-expression */: //DESITINO MISIANTYI
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+            break;
+        case 2:
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+        case 3:
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+
+        case 4:
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+
+        case 5: 
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+
+        case 6:
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+
+        case 7:
+            askForDayOfTravel();
+            bookTrain();
+            payForTrain();
+        break;
+        
+        default:
+            break;
+        }
+}
+
+void bookTrain(){
+    printf("Train Booked \n");
+}
+
+void payForTrain(){
+    printf("Kindly pay though MPesa.\n");
+}
+
+int askForDayOfTravel(){
+    printf("Kindly Enter Day and time of Travel\n");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //  printf("Enter your destination :");
     // scanf("%s", &destination);
